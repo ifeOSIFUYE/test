@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* I apologize for styling some elements without using class names. I know it is bad practice but I did it because it is a small application.  */
+
+:root {
+
+  --light-theme-bg-color: hsl(0, 0%, 100%);
+  --light-theme-card-bg-color: hsl(225, 100%, 98%);
+  --light-theme-grayish-blue-hover-bg-color: hsl(227, 47%, 96%);
+  --light-theme-dark-grayish-blue-color: hsl(228, 12%, 44%);
+  --light-theme-very-dark-blue-color: hsl(230, 17%, 14%);
+  --light-theme-toggle: hsl(230, 22%, 74%);
+  --dark-theme-bg-color: hsl(230, 17%, 14%);
+  --dark-theme-card-bg-color: hsl(228, 28%, 20%);
+  --dark-theme-grayish-blue-hover-bg-color: hsl(228, 34%, 66%);
+  --dark-theme-toggle: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+  --border-width: 4px;
+  --overview-card-height: 125px;
+}
+
+.light {
+  --bg-color: var(--light-theme-bg-color);
+  --card-bg-color: var(--light-theme-card-bg-color);
+  --card-hover-bg-color: var(--light-theme-grayish-blue-hover-bg-color);
+  --toggle: var(--light-theme-toggle);
+  --text-color: var(--dark-theme-bg-color);
+}
+
+.dark {
+  --bg-color: var(--dark-theme-bg-color);
+  --card-bg-color: var(--dark-theme-card-bg-color);
+  --card-hover-bg-color: var(--dark-theme-grayish-blue-hover-bg-color);
+  --toggle: var(--dark-theme-toggle);
+  --text-color: var(--light-theme-bg-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background: var(--bg-color);
+  transition: 100ms background ease-in;
+}
+
+/* ********************** Text/Fonts ********************** */
+
+p {
+  font-size: 14px;
+  text-transform: capitalize;
+  letter-spacing: 0.2em;
+  color: var(--light-theme-dark-grayish-blue-color);
+}
+
+/* ********************** Text/Fonts End ********************** */
+
+/* ********************** Images ********************** */
+.image-div {
+  object-fit: contain;
+  object-position: center;
+  margin: 3px;
+  display: grid;
+  place-items: center;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+button {
+  padding: 10px 15px;
+  background: var(--toggle);
+  border: none;
+}
+
+/* ********************** Images End ********************** */
+
+.container {
+  margin: 40px auto;
+  width: 80%;
+}
+
+header {
+  border-bottom: 1px solid var(--light-theme-dark-grayish-blue-color);
+  padding-bottom: 25px;
+  margin-bottom: 15px;
+}
+
+.search-form {
+
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-wrapper::before {
+  position: absolute;
+  content: '🔍';
+  z-index: 2;
+  left: 7px;
+  top: 7px;
+}
+
+.search-wrapper input {
+  position: relative;
+  background: var(--card-bg-color);
+  border: none;
+  color: var(--text-color);
+  letter-spacing: 0.2em;
+  text-transform: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  padding: 10px 30px;
+}
+
+.search-wrapper input:focus {
+  outline: none;
+  background-color: var(--card-hover-bg-color);
+}
+
+aside {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle {
+  margin-left: 15px;
+  width: 48px;
+  height: 24px;
+  border-radius: 24px;
+  background: var(--toggle);
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-ball {
+  width: 18px;
+  height: 18px;
+  background: var(--bg-color);
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  cursor: pointer;
+  transition: 50ms transform linear;
+}
+
+.toggle:hover {
+  background: var(--dark-theme-toggle);
+}
+
+.overview {
+  margin: 30px 0 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+}
+
+.overview-box {
+  overflow: hidden;
+  padding: 20px;
+  height: var(--overview-card-height);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--card-bg-color);
+  border-radius: var(--border-width);
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 0.5px 0px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0px 0px 0.5px 0px rgba(0, 0, 0, 0.27);
+  box-shadow: 0px 0px 0.5px 0px rgba(0, 0, 0, 0.27);
+}
+
+.overview-box:hover {
+  background: var(--card-hover-bg-color);
+}
+
+.person-text p:first-child {
+  color: var(--text-color);
+}
+
+@media screen and (min-width: 1000px) {
+  .container--head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  header {
+    border-bottom: none;
+  }
+}
