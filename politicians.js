@@ -106,4 +106,7 @@ toggle.onclick = () => {
 };
 
 // loads characters
+window.addEventListener('DOMContentLoaded', () => {
 loadCharacters();
+});
+
